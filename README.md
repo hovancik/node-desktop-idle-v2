@@ -1,3 +1,7 @@
+Forking https://github.com/bithavoc/node-desktop-idle since current Electron idle timers do not working on Linux due to upstream issues.
+
+This fork focuses on making node-desktop-idle work with the latest electron
+
 ## desktop idle
 > [![Build status](https://ci.appveyor.com/api/projects/status/gwlnytjjw4ju3vs0?svg=true)](https://ci.appveyor.com/project/bithavoc/node-desktop-idle)
 > [![Build Status](https://travis-ci.org/bithavoc/node-desktop-idle.svg?branch=master)](https://travis-ci.org/bithavoc/node-desktop-idle)

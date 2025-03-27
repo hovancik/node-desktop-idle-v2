@@ -1,6 +1,8 @@
-var vows = require('vows');
-var assert = require('assert');
-var desktopIdle = require('../');
+import vows from 'vows'
+import assert from 'assert'
+import desktopIdle from '../build/Release/desktopIdle'
+
+
 vows.describe('getIdleTime()').addBatch({
   'return value': () => {
     var idle = desktopIdle.getIdleTime()  
