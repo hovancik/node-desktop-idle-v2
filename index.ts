@@ -1,1 +1,1 @@
-export * from './src/desktopIdle'
+export * from './src/main.ts'

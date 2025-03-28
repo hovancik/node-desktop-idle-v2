@@ -1,12 +1,14 @@
-// import assert from 'assert'
-import { desktopIdle } from "../dist";
-
+import { DesktopIdle, getDesktopIdle } from "./main.ts";
 
 describe('Main', () => {
   const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-  beforeAll(() => {
+  let desktopIdle: DesktopIdle;
+
+  beforeAll(async () => {
     console.log('start')
+    desktopIdle = await getDesktopIdle();
+
     desktopIdle.startMonitoring()
   })
 

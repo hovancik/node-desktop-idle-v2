@@ -1,29 +1,15 @@
 {
 	"compilerOptions": {
-		"resolveJsonModule": true,
-		"module": "ESNext", // Use ES modules
-		"target": "ESNext", // Target modern JavaScript
-		"lib": ["ES2022", "DOM"],
-		"allowJs": false,
-		"declaration": true,
+		"module": "esnext",
+		"target": "esnext",
+		"lib": ["esnext"],
 		"outDir": "./dist",
 		"strict": true,
-		"noImplicitAny": true,
-		"strictNullChecks": true,
-		"strictFunctionTypes": true,
-		"strictBindCallApply": true,
-		"strictPropertyInitialization": true,
-		"noImplicitThis": true,
-		"alwaysStrict": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noImplicitReturns": true,
-		"noFallthroughCasesInSwitch": true,
-		"moduleResolution": "node",
-		"typeRoots": ["./node_modules/@types/"],
 		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true
+		"moduleResolution": "node",
+		"allowImportingTsExtensions": true,
+		"noEmit": true
 	},
-	"include": ["index.ts", "src/**/*"],
+	"include": ["src/**/*", "src/**/*.test.ts", "src/global.d.ts"],
+	"exclude": ["node_modules", "dist"]
 }
