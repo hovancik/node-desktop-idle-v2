@@ -1,5 +1,5 @@
 {
-  "name": "desktop-idle",
+  "name": "@hfl/desktop-idle",
   "version": "2.0.0",
   "main": "index.js",
   "license": "MIT",
