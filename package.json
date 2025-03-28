@@ -4,10 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "type": "module",
-  "description": "Node/Electron module to detect idle desktop users(users away from keyboard) in macOS, Windows, Linux, FreeBSD and OpenBSD",
+  "description": "Node/Electron module to detect idle desktop users(users away from keyboard) in macOS, Windows and Linux",
   "bugs": {
-    "email": "im@bithavoc.io",
-    "url": "https://github.com/bithavoc/node-desktop-idle/issues"
+    "email": "maurovic.cachia@gmail.io",
+    "url": "https://github.com/MomoRazor/node-desktop-idle/issues"
   },
   "keywords": [
     "idle",
@@ -16,13 +16,7 @@
     "away",
     "afk"
   ],
-  "homepage": "https://github.com/bithavoc/node-desktop-idle",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/bithavoc/node-desktop-idle/blob/master/LICENSE"
-    }
-  ],
+  "homepage": "https://github.com/MomoRazor/node-desktop-idle",
   "repository": {
     "type": "git",
     "url": "git@github.com:bithavoc/node-desktop-idle.git"
@@ -31,13 +25,12 @@
     "windows",
     "linux",
     "darwin",
-    "win32",
-    "freebsd",
-    "openbsd"
+    "win32"
   ],
   "engines": {
     "node": ">=22.14.0"
   },
+  "gypfile": true,
   "devDependencies": {
     "@types/jest": "29.5.14",
     "eslint": "9.23.0",
@@ -48,16 +41,6 @@
     "ts-jest": "29.3.0",
     "typescript": "5.8.2",
     "nan": "2.22.2"
-  },
-  "watch": {
-    "test_watch": {
-      "patterns": [
-        "src",
-        "test"
-      ],
-      "extensions": "js,mm,gyp,h,cc",
-      "legacyWatch": true
-    }
   },
   "scripts": {
     "test": "jest",
