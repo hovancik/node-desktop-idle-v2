@@ -1,5 +1,6 @@
 // import assert from 'assert'
-import desktopIdle from "../src/desktopIdle"
+import { desktopIdle } from "../dist";
+
 
 describe('Main', () => {
   const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
