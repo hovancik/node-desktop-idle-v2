@@ -1,1 +1,5 @@
-double desktop_idle_get_time();
+double getTime();
+
+void start();
+
+void stop();

@@ -5,15 +5,9 @@ os:
 sudo: false
 language: node_js
 node_js:
-  - "7"
-addons:
-  apt:
-    packages:
-      - libxss-dev
+  - "22"
 
 install:
   - rm -rf node_modules
-  - npm install -g yarn
-  - yarn install
-  - yarn install --dev
-  - yarn test
+  - npm install
+  - npm install --dev

@@ -3,17 +3,24 @@
     {
       "target_name": "desktopIdle",
       "sources": [
-        "src/desktop_idle.cc"
+        "src/desktop_idle.cc",
+        "src/linux/idle.cc"
+      ],
+      "include_dirs": [
+        "<!(node -e \"require('nan')\")"  # Include the nan package
       ],
       "conditions": [
-        ['OS=="mac"', {
-          "sources": [
-            "src/mac/idle.mm"
-          ],
-          "xcode_settings": {
-            "OTHER_LDFLAGS": ["-framework CoreGraphics"]
+        [
+          'OS=="mac"',
+          {
+            "sources": [
+              "src/mac/idle.mm"
+            ],
+            "xcode_settings": {
+              "OTHER_LDFLAGS": ["-framework CoreGraphics"]
+            }
           }
-        }],
+        ],
         [
           'OS=="linux"',
           {
@@ -21,22 +28,19 @@
               "src/linux/idle.cc"
             ],
             "variables": {
-	            "pkg-config": "pkg-config"
+              "pkg-config": "pkg-config"
             },
-            "sources": [
-              "src/linux/idle.cc"
-            ],
             "direct_dependent_settings": {
               "cflags": [
-                "<!@(<(pkg-config) --cflags x11 xext xscrnsaver)",
-              ],
+                "<!@(<(pkg-config) --cflags libinput libudev)"
+              ]
             },
             "link_settings": {
               "ldflags": [
-                "<!@(<(pkg-config) --libs-only-other --libs-only-L x11 xext xscrnsaver)",
+                "<!@(<(pkg-config) --libs-only-other --libs-only-L libinput libudev)"
               ],
               "libraries": [
-                "<!@(<(pkg-config) --libs-only-l x11 xext xscrnsaver)",
+                "<!@(<(pkg-config) --libs-only-l libinput libudev)"
               ]
             }
           }
@@ -48,25 +52,22 @@
               "src/linux/idle.cc"
             ],
             "variables": {
-	            "pkg-config": "pkg-config"
+              "pkg-config": "pkg-config"
             },
-            "sources": [
-              "src/linux/idle.cc"
+            "include_dirs": [
+              "/usr/local/include"
             ],
-	    "include_dirs": [
-		"/usr/local/include"
-	    ],
             "direct_dependent_settings": {
               "cflags": [
-                "<!@(<(pkg-config) --cflags x11 xext xscrnsaver)",
-              ],
+                "<!@(<(pkg-config) --cflags libinput libudev)"
+              ]
             },
             "link_settings": {
               "ldflags": [
-                "<!@(<(pkg-config) --libs-only-other --libs-only-L x11 xext xscrnsaver)",
+                "<!@(<(pkg-config) --libs-only-other --libs-only-L libinput libudev)"
               ],
               "libraries": [
-                "<!@(<(pkg-config) --libs-only-l x11 xext xscrnsaver)",
+                "<!@(<(pkg-config) --libs-only-l libinput libudev)"
               ]
             }
           }
@@ -78,30 +79,27 @@
               "src/linux/idle.cc"
             ],
             "variables": {
-	            "pkg-config": "pkg-config"
+              "pkg-config": "pkg-config"
             },
-            "sources": [
-              "src/linux/idle.cc"
+            "include_dirs": [
+              "/usr/X11R6/include"
             ],
-	    "include_dirs": [
-		"/usr/X11R6/include"
-	    ],
             "direct_dependent_settings": {
               "cflags": [
-                "<!@(<(pkg-config) --cflags x11 xext xscrnsaver)",
-              ],
+                "<!@(<(pkg-config) --cflags libinput libudev)"
+              ]
             },
             "link_settings": {
               "ldflags": [
-                "<!@(<(pkg-config) --libs-only-other --libs-only-L x11 xext xscrnsaver)",
+                "<!@(<(pkg-config) --libs-only-other --libs-only-L libinput libudev)"
               ],
               "libraries": [
-                "<!@(<(pkg-config) --libs-only-l x11 xext xscrnsaver)",
+                "<!@(<(pkg-config) --libs-only-l libinput libudev)"
               ]
             }
           }
         ],
-	[
+        [
           'OS=="win"',
           {
             "sources": [
@@ -109,8 +107,7 @@
             ],
             "msvs_settings": {
               "VCLinkerTool": {
-                # Don't print a linker warning when no imports from either .exe are used.
-                "AdditionalOptions": ["/ignore:4199"],
+                "AdditionalOptions": ["/ignore:4199"] # Suppress linker warnings
               }
             }
           }

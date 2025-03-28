@@ -1,6 +1,32 @@
-Forking https://github.com/bithavoc/node-desktop-idle since current Electron idle timers do not working on Linux due to upstream issues.
+Forking https://github.com/bithavoc/node-desktop-idle since current Electron idle timers do not working on Linux due to upstream issues, and package seems to be abandoned.
 
-This fork focuses on making node-desktop-idle work with the latest electron
+This fork focuses on making node-desktop-idle work with contemporary softwares, until electron provides a more stable way to get idle time (at least on Linux platforms)
+
+Changes Made:
+- Updated to latest Node JS LTS (22.14.0)
+- Switched package to ESModule
+- Converted to Typescript
+- Updated the following packages:
+    - Node-gyp
+    - eslint
+    - npm-watch
+- Switched Packages:
+    - vows switched to jest
+- Added Packages:
+    - nan for better support to C++
+    - npm-check for easier updates
+
+Platform Specific Changes:
+- Linux:
+    - Switched from an xscreensaver approach to a input based approach to support more enviornments.
+- Windows:
+- Mac:
+
+Instructions to use:
+
+- Linux:
+    - User must have the permission to access inputs.
+    
 
 ## desktop idle
 > [![Build status](https://ci.appveyor.com/api/projects/status/gwlnytjjw4ju3vs0?svg=true)](https://ci.appveyor.com/project/bithavoc/node-desktop-idle)

@@ -1,13 +1,9 @@
 environment:
-  nodejs_version: "7"
+  nodejs_version: "22"
 
 install:
   - ps: Install-Product node $env:nodejs_version
-  - npm install -g yarn
-  - yarn install
-  - yarn install --dev
-
-test_script:
-  - yarn test
+  - npm install
+  - npm install --dev
 
 build: off

@@ -1,25 +1,36 @@
-#include <node.h>
+#include <nan.h>
 #include "idle.h"
 
 namespace desktopIdle {
 
-using v8::FunctionCallbackInfo;
+using Nan::FunctionCallbackInfo;
 using v8::Isolate;
 using v8::Local;
 using v8::Object;
 using v8::Number;
 using v8::Value;
+using v8::Context;
 
 void desktopIdleGetIdleTime(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
-  double idleSeconds = desktop_idle_get_time();
+  double idleSeconds = getTime();
   args.GetReturnValue().Set(Number::New(isolate, static_cast<double>(idleSeconds)));
 }
 
-void init(Local<Object> exports) {
-  NODE_SET_METHOD(exports, "getIdleTime", desktopIdleGetIdleTime);
+void desktopIdleStartMonitoring(const FunctionCallbackInfo<Value>& args) {
+  start();
 }
 
-NODE_MODULE(desktopIdle, init)
+void desktopIdleStopMonitoring(const FunctionCallbackInfo<Value>& args) {
+  stop();
+}
 
-}  // na
+void init(Local<Object> exports, Local<Value> module, Local<Context> context, void* priv) {
+  Nan::SetMethod(exports, "getIdleTime", desktopIdleGetIdleTime);
+  Nan::SetMethod(exports, "startMonitoring", desktopIdleStartMonitoring);
+  Nan::SetMethod(exports, "stopMonitoring", desktopIdleStopMonitoring);
+}
+
+NODE_MODULE_CONTEXT_AWARE(desktopIdle, init)
+
+}  // namespace desktopIdle
