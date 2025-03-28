@@ -11,11 +11,12 @@ describe('Main', () => {
 
   it('should test desktopIdle', async () => {
 
-    await sleep(4000);
+    setInterval(() => {
+      const idle = desktopIdle.getIdleTime()
+      console.log("test idle", idle);
+    }, 1000)
 
-    const idle = desktopIdle.getIdleTime()  
-    console.log("test idle", idle);
-    // assert.ok(idle > 0, 'should return idle time');
+    await sleep(4000);
   },9000)
 
   afterAll(() => {

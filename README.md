@@ -6,6 +6,7 @@ Changes Made:
 - Updated to latest Node JS LTS (22.14.0)
 - Switched package to ESModule
 - Converted to Typescript
+- Switched to NPM from Yarn
 - Updated the following packages:
     - Node-gyp
     - eslint
@@ -20,55 +21,27 @@ Platform Specific Changes:
 - Linux:
     - Switched from an xscreensaver approach to a input based approach to support more enviornments.
 - Windows:
+    - No significant changes as of yet
 - Mac:
+    - No significant changes as of yet
 
 Instructions to use:
 
-- Linux:
-    - User must have the permission to access inputs.
-    
+- General
+    - If changes are done to native code for any platform, please run `npm run gyp-refresh`
+    - To run a test, run `npm run test main.test.ts`. This will run a 4 second test, giving idle time every second.
 
-## desktop idle
-> [![Build status](https://ci.appveyor.com/api/projects/status/gwlnytjjw4ju3vs0?svg=true)](https://ci.appveyor.com/project/bithavoc/node-desktop-idle)
-> [![Build Status](https://travis-ci.org/bithavoc/node-desktop-idle.svg?branch=master)](https://travis-ci.org/bithavoc/node-desktop-idle)
-> [![Monthly Downloads](https://img.shields.io/npm/dm/desktop-idle.svg)](https://www.npmjs.com/package/desktop-idle)
+- Platform specific:
+    - Linux:
+        - User must have the permission to access inputs
+    - Windows:
+        - No specific instructions
+    - MacOS:
+        - No specific Instructions
 
-Node/Electron module to detect idle desktop users (macOS, Windows, Linux, FreeBSD and OpenBSD).
+Tested On:
 
-**Stable | Actively maintained | Pull Requests Welcome**
-
-_Forked and inspired from [node-system-idle-time](https://github.com/paulcbetts/node-system-idle-time)_
-
-### Installation
-```
-npm install --save desktop-idle
-# or yarn
-yarn add desktop-idle
-```
-
-### Cross-Platform Support
-* **Windows:** [GetLastInputInfo](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646302(v=vs.85).aspx), see `src/win/idle.cc`.
-* **Mac(OSX):** [CoreGraphics Event Source](https://developer.apple.com/documentation/coregraphics/1408790-cgeventsourcesecondssincelasteve), see `src/mac/idle.cc`.
-* **Linux & FreeBSD & OpenBSD:** [X Screensaver](https://linux.die.net/man/3/xscreensaverqueryinfo), see `src/linux/idle.cc`.
-
-### Usage
-```
-var desktopIdle = require('desktop-idle');
-console.log(desktopIdle.getIdleTime());
-```
-
-### Linux Requirements
-
-X server development package and pkg-config are required:
-
-`apt install libxss-dev pkg-config`
-
-### Test
-
-```
-yarn test
-```
-
-### License
-
-> `MIT - Bithavoc<im@bithavoc.io>`
+Linux 
+    - Ubuntu 24.04.2 LTS
+Windows (tests to run soon)
+macOS (do not have the resources to test this </3)
