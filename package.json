@@ -1,6 +1,6 @@
 {
-  "name": "node-desktop-idle-2",
-  "version": "2.0.0",
+  "name": "node-desktop-idle-v2",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "type": "module",
