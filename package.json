@@ -1,6 +1,6 @@
 {
   "name": "node-desktop-idle-v2",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./dist/index.js",
   "license": "MIT",
   "type": "module",
@@ -48,8 +48,7 @@
     "typescript": "5.8.2"
   },
   "dependencies": {
-    "nan": "2.22.2",
-    "node-desktop-idle-v2": "file:node-desktop-idle-v2-0.0.3.tgz"
+    "nan": "2.22.2"
   },
   "scripts": {
     "test": "jest",
