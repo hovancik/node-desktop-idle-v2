@@ -1,4 +1,4 @@
-Forking https://github.com/bithavoc/node-desktop-idle since current Electron idle timers do not working on Linux due to upstream issues, and package seems to be abandoned.
+Forking https://github.com/bithavoc/node-desktop-idle since current Electron idle timers do not work on Linux due to upstream issues, and package seems to be abandoned.
 
 This fork focuses on making node-desktop-idle work with contemporary softwares, until electron provides a more stable way to get idle time (at least on Linux platforms)
 

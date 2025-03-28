@@ -1,7 +1,7 @@
 {
   "name": "node-desktop-idle-v2",
-  "version": "0.0.1",
-  "main": "index.js",
+  "version": "0.0.2",
+  "main": "index.ts",
   "license": "MIT",
   "type": "module",
   "description": "Node/Electron module to detect idle desktop users(users away from keyboard) in macOS, Windows and Linux",
@@ -49,6 +49,7 @@
     "watch": "npm-watch",
     "gyp-refresh": "node-gyp clean && node-gyp configure && node-gyp build",
     "check-packages": "npx npm-check -u -E",
-    "refresh-packages": "rm -rf node_modules && rm -rf package-lock.json && npm i"
+    "refresh-packages": "rm -rf node_modules && rm -rf package-lock.json && npm i",
+    "build": "tsc"
   }
 }
