@@ -1,13 +1,13 @@
 {
   "name": "node-desktop-idle-v2",
-  "version": "0.0.12",
+  "version": "0.0.16",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
   "license": "MIT",
   "type": "module",
   "description": "Node/Electron module to detect idle desktop users(users away from keyboard) in macOS, Windows and Linux",
   "bugs": {
-    "email": "maurovic.cachia@gmail.io",
+    "email": "maurovic.cachia@gmail.com",
     "url": "https://github.com/MomoRazor/node-desktop-idle/issues"
   },
   "keywords": [
@@ -51,7 +51,7 @@
   },
   "scripts": {
     "test": "jest",
-    "configure-gyp": "node-gyp rebuild --target=22.14.0 --arch=x64 --dist-url=https://electronjs.org/headers",
+    "configure-gyp": "node-gyp rebuild --target=22.14.0 --arch=x64",
     "gyp-refresh": "node-gyp clean && node-gyp configure && node-gyp build",
     "build-refresh": "rm -rf dist && tsc",
     "check-packages": "npx npm-check -u -E",

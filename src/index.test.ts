@@ -1,15 +1,16 @@
-import { DesktopIdle, getDesktopIdle } from '.';
+// import { DesktopIdle, getDesktopIdle } from '.';
+import { desktopIdle } from '.';
 
 describe('Main', () => {
   console.log(process.versions.modules)
 
   const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-  let desktopIdle: DesktopIdle;
+  // let desktopIdle: DesktopIdle;
 
   beforeAll(async () => {
     console.log('start')
-    desktopIdle = await getDesktopIdle();
+    // desktopIdle = await getDesktopIdle();
 
     desktopIdle.startMonitoring()
   })

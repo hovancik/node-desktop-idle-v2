@@ -3,7 +3,7 @@ Forking https://github.com/bithavoc/node-desktop-idle since current Electron idl
 This fork focuses on making node-desktop-idle work with contemporary softwares, until electron provides a more stable way to get idle time (at least on Linux platforms)
 
 Changes Made:
-- Updated to latest Node JS LTS (22.14.0)
+- Updated and prebuilt on latest NodeJs LTS (22.14.0 currently)
 - Switched package to ESModule
 - Converted to Typescript
 - Switched to NPM from Yarn
@@ -45,3 +45,6 @@ Linux
     - Ubuntu 24.04.2 LTS
 Windows (tests to run soon)
 macOS (do not have the resources to test this </3)
+
+Usage with Electron:
+- Since Electron uses a specific NodeJS ABI version (at the time of writing 133), you will still need to use something to recompile the native parts of this package. I've used @electron/rebuild (https://www.npmjs.com/package/@electron/rebuild), but anything should work.
