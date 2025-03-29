@@ -1,6 +1,8 @@
-import { DesktopIdle, getDesktopIdle } from "./main.ts";
+import { DesktopIdle, getDesktopIdle } from '.';
 
 describe('Main', () => {
+  console.log(process.versions.modules)
+
   const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
   let desktopIdle: DesktopIdle;
