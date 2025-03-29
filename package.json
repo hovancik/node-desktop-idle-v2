@@ -56,7 +56,6 @@
     "build-refresh": "rm -rf dist && tsc",
     "check-packages": "npx npm-check -u -E",
     "refresh-packages": "rm -rf node_modules && rm -rf package-lock.json && npm i",
-    "build": "npm run gyp-refresh && npm run build-refresh",
-    "build-publish": "npm run build && npm publish"
+    "build": "npm run gyp-refresh && npm run build-refresh"
   }
 }
