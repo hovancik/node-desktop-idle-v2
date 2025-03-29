@@ -1,6 +1,6 @@
 {
   "name": "node-desktop-idle-v2",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
   "license": "MIT",
@@ -45,7 +45,6 @@
     "typescript": "5.8.2"
   },
   "dependencies": {
-    "@mapbox/node-pre-gyp": "^2.0.0",
     "nan": "2.22.2"
   },
   "scripts": {
@@ -56,6 +55,6 @@
     "check-packages": "npx npm-check -u -E",
     "refresh-packages": "rm -rf node_modules && rm -rf package-lock.json && npm i",
     "build": "npm run gyp-refresh && npm run build-refresh",
-    "publish": "npm run build && npm publish"
+    "build-publish": "npm run build && npm publish"
   }
 }
