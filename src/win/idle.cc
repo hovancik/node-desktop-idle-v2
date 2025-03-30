@@ -3,7 +3,6 @@
 #include <windows.h>
 
 double getTime() {
-  printf("Test");
   LASTINPUTINFO lif;
   lif.cbSize = sizeof(lif);
   if (!GetLastInputInfo(&lif)) return -1;
