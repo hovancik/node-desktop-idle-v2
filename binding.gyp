@@ -4,7 +4,6 @@
       "target_name": "desktopIdle",
       "sources": [
         "src/desktop_idle.cc",
-        "src/linux/idle.cc"
       ],
       "include_dirs": [
         "<!(node -e \"require('nan')\")"  # Include the nan package

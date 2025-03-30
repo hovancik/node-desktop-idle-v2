@@ -29,7 +29,7 @@ Instructions to use:
 
 - General
     - If changes are done to native code for any platform, please run `npm run gyp-refresh`
-    - To run a test, run `npm run test main.test.ts`. This will run a 4 second test, giving idle time every second.
+    - To run a test, run `node ./test.js` after having built (`npm run build`) the project. This will run a 10 second test, giving idle time every second.
 
 - Platform specific:
     - Linux:
@@ -41,10 +41,11 @@ Instructions to use:
 
 Tested On:
 
-Linux 
+- Linux 
     - Ubuntu 24.04.2 LTS
-Windows (tests to run soon)
-macOS (do not have the resources to test this </3)
+- Windows (tests to run soon)
+    - Windows 11
+- macOS (do not have the resources to test this </3)
 
 Usage with Electron:
 - Since Electron uses a specific NodeJS ABI version (at the time of writing 133), you will still need to use something to recompile the native parts of this package. I've used @electron/rebuild (https://www.npmjs.com/package/@electron/rebuild), but anything should work.
