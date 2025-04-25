@@ -28,17 +28,17 @@ This fork focuses on making node-desktop-idle work with contemporary softwares, 
 # Instrutions
 
 ## Platform specific Instructions:
-    - Linux:
-        - Confirm that User has permission to access `inputs` group. 
-        - This can be done in a variety of ways, but the simplest way is the following: 
-            `sudo usermod -a -G inputs 'userName'`
-        - In the above command `userName` should be changed to the username of the currently logged in user. (This can be found out by running `whoami` in the terminal as well).
-        - Make sure to restart or log out and log in again for changes to permissions to take effect.
-        - This will be required for whatever project uses this package as well, so my suggestion is checking for this access in your project and guiding the end user through this process for linux cases. Even though this is a bit outside the scope of this package, if more help is required on this point, don't hesitate to reach out :).
-    - Windows:
-        - No extra steps needed
-    - MacOS:
-        - No extra steps needed
+- Linux:
+    - Confirm that User has permission to access `inputs` group. 
+    - This can be done in a variety of ways, but the simplest way is the following: 
+        `sudo usermod -a -G inputs 'userName'`
+    - In the above command `userName` should be changed to the username of the currently logged in user. (This can be found out by running `whoami` in the terminal as well).
+    - Make sure to restart or log out and log in again for changes to permissions to take effect.
+    - This will be required for whatever project uses this package as well, so my suggestion is checking for this access in your project and guiding the end user through this process for linux cases. Even though this is a bit outside the scope of this package, if more help is required on this point, don't hesitate to reach out :).
+- Windows:
+    - No extra steps needed
+- MacOS:
+    - No extra steps needed
 
 ## Instructions to use package:
 
@@ -47,19 +47,19 @@ Firstly, make sure you following the Platform Specific Instructions, according t
 `import { desktopIdle } from 'node-desktop-idle-v2'`
 
 The package offers 3 functions:
-    - `startMonitoring()`
-        - This enables the system to start tracking idle time. This is required in Linux systems, but can be ignored on Windows systems, since Windows systems have their own idle time trackers that can be used.
-        NB; On Linux systems, time will always be tracked from the moment `startMonitoring()` is called, so any usage of `getIdleTime()` before this point will return a 0.
-    - `getIdleTime()`
-        - This is the function that returns the current Idle time in seconds. This value will reset every time the user interacts with their device in any way.
-    - `stopMonitoring()`
-        - This pauses the system from tracking idle time. Similar to `startMonitoring()`, this only effects Linux systems, and can be safely ignored on Windows systems.
+- `startMonitoring()`
+    - This enables the system to start tracking idle time. This is required in Linux systems, but can be ignored on Windows systems, since Windows systems have their own idle time trackers that can be used.
+    NB; On Linux systems, time will always be tracked from the moment `startMonitoring()` is called, so any usage of `getIdleTime()` before this point will return a 0.
+- `getIdleTime()`
+    - This is the function that returns the current Idle time in seconds. This value will reset every time the user interacts with their device in any way.
+- `stopMonitoring()`
+    - This pauses the system from tracking idle time. Similar to `startMonitoring()`, this only effects Linux systems, and can be safely ignored on Windows systems.
 
 
 ## Instructions to test the package after cloning:
-    - Follow Platform specific instructions
-    - If changes are done to native code for any platform, please run `npm run gyp-refresh`
-    - To run a test, run `node ./test.js` after having built (`npm run build`) the project. This will run a 10 second test, giving idle time every second.
+- Follow Platform specific instructions
+- If changes are done to native code for any platform, please run `npm run gyp-refresh`
+- To run a test, run `node ./test.js` after having built (`npm run build`) the project. This will run a 10 second test, giving idle time every second.
 
 # Tested and Supporting:
 
