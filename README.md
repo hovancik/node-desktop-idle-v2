@@ -3,7 +3,7 @@ Forking https://github.com/bithavoc/node-desktop-idle since current Electron idl
 This fork focuses on making node-desktop-idle work with contemporary softwares, until electron provides a more stable way to get idle time (at least on Linux platforms)
 
 # Changes Made:
-- Updated and prebuilt on latest NodeJs LTS (22.14.0 currently)
+- Updated and prebuilt on latest NodeJs LTS (22.15.0 currently)
 - Switched package to ESModule
 - Converted to Typescript
 - Switched to NPM from Yarn
@@ -61,13 +61,14 @@ The package offers 3 functions:
 - If changes are done to native code for any platform, please run `npm run gyp-refresh`
 - To run a test, run `node ./test.js` after having built (`npm run build`) the project. This will run a 10 second test, giving idle time every second.
 
-# Tested and Supporting:
-
+# Directly Tested Platforms:
 - Linux 
     - Ubuntu 24.04.2 LTS
-- Windows (tests to run soon)
+- Windows
     - Windows 11
 - macOS (do not have the resources to test this </3)
+
+NB; It supports more OS versions, however these are the version that have been directly tested.
 
 # Usage with Electron:
 - Since Electron uses a specific NodeJS ABI version (at the time of writing 133), you will still need to use something to recompile the native parts of this package. I've used @electron/rebuild (https://www.npmjs.com/package/@electron/rebuild), but anything should work.
