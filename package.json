@@ -1,14 +1,14 @@
 {
   "name": "node-desktop-idle-v2",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
   "license": "MIT",
   "type": "module",
-  "description": "Node/Electron module to detect idle desktop users(users away from keyboard) in macOS, Windows and Linux",
+  "description": "Node/Electron module to detect idle desktop users(users away from keyboard) in Windows and Linux",
   "bugs": {
     "email": "maurovic.cachia@gmail.com",
-    "url": "https://github.com/MomoRazor/node-desktop-idle/issues"
+    "url": "https://github.com/MomoRazor/node-desktop-idle-v2/issues"
   },
   "keywords": [
     "idle",
@@ -17,15 +17,14 @@
     "away",
     "afk"
   ],
-  "homepage": "https://github.com/MomoRazor/node-desktop-idle",
+  "homepage": "https://github.com/MomoRazor/node-desktop-idle-v2",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/MomoRazor/node-desktop-idle.git"
+    "url": "git+ssh://git@github.com:MomoRazor/node-desktop-idle-v2.git"
   },
   "os": [
     "windows",
     "linux",
-    "darwin",
     "win32"
   ],
   "files": [
@@ -38,8 +37,8 @@
   ],
   "gypfile": true,
   "devDependencies": {
-    "@types/node": "22.14.0",
-    "eslint": "9.24.0",
+    "@types/node": "22.15.2",
+    "eslint": "9.25.1",
     "node-gyp": "11.2.0",
     "npm-check": "6.0.1",
     "typescript": "5.8.3"
@@ -48,7 +47,6 @@
     "nan": "2.22.2"
   },
   "scripts": {
-    "configure-gyp": "node-gyp rebuild --target=22.14.0 --arch=x64",
     "gyp-refresh": "node-gyp clean && node-gyp configure && node-gyp build",
     "build-refresh": "rm -rf dist && tsc",
     "check-packages": "npx npm-check -u -E",

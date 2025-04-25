@@ -2,8 +2,8 @@
 import { createRequire } from 'module';
 const customRequire = createRequire(import.meta.url);
 export interface DesktopIdle {
-    getIdleTime: () => number;
     startMonitoring: () => void;
+    getIdleTime: () => number;
     stopMonitoring: () => void;
 }
 
