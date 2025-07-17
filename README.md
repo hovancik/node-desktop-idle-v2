@@ -31,8 +31,7 @@ This fork focuses on making node-desktop-idle work with contemporary softwares, 
 - Linux:
     - Confirm that User has permission to access `inputs` group. 
     - This can be done in a variety of ways, but the simplest way is the following: 
-        `sudo usermod -a -G inputs 'userName'`
-    - In the above command `userName` should be changed to the username of the currently logged in user. (This can be found out by running `whoami` in the terminal as well).
+        `sudo usermod -aG input $USER`
     - Make sure to restart or log out and log in again for changes to permissions to take effect.
     - This will be required for whatever project uses this package as well, so my suggestion is checking for this access in your project and guiding the end user through this process for linux cases. Even though this is a bit outside the scope of this package, if more help is required on this point, don't hesitate to reach out :).
 - Windows:
@@ -52,6 +51,7 @@ The package offers 3 functions:
     NB; On Linux systems, time will always be tracked from the moment `startMonitoring()` is called, so any usage of `getIdleTime()` before this point will return a 0.
 - `getIdleTime()`
     - This is the function that returns the current Idle time in seconds. This value will reset every time the user interacts with their device in any way.
+    - It is important to note that if for whatever reason, the code fails to start monitoring actions, the idle time will remain '-1', and this can be handled by your code accordingly (thanks @hovancik for this one).
 - `stopMonitoring()`
     - This pauses the system from tracking idle time. Similar to `startMonitoring()`, this only effects Linux systems, and can be safely ignored on Windows systems.
 

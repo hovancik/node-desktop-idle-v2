@@ -37,14 +37,14 @@
   ],
   "gypfile": true,
   "devDependencies": {
-    "@types/node": "24.0.10",
-    "eslint": "9.30.1",
+    "@types/node": "24.0.14",
+    "eslint": "9.31.0",
     "node-gyp": "11.2.0",
     "npm-check": "6.0.1",
     "typescript": "5.8.3"
   },
   "dependencies": {
-    "nan": "2.22.2"
+    "nan": "2.23.0"
   },
   "scripts": {
     "gyp-refresh": "node-gyp clean && node-gyp configure && node-gyp build",

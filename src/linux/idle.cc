@@ -15,16 +15,17 @@ std::atomic<double> last_event_time(-1);
 std::mutex fds_mutex; // Mutex to protect file descriptors
 bool stop_monitoring = false; // Flag to stop monitoring
 
-// Function to monitor input events in the background
-void monitor_input_events() {
+std::vector<int> get_input_devices() {
+    std::vector<int> fds; // File descriptors for all input devices
+        
     const char *input_dir = "/dev/input/";
+
     DIR *dir = opendir(input_dir);
     if (!dir) {
         perror("Failed to open /dev/input/");
-        return;
+        return fds;
     }
 
-    std::vector<int> fds; // File descriptors for all input devices
     struct dirent *entry;
 
     // Open all input event devices
@@ -46,10 +47,11 @@ void monitor_input_events() {
     }
     closedir(dir);
 
-    if (fds.empty()) {
-        fprintf(stderr, "No input devices found\n");
-        return;
-    }
+    return fds;
+}
+
+// Function to monitor input events in the background
+void monitor_input_events(std::vector<int> fds) {
 
     struct input_event ev;
     struct timespec now;
@@ -92,16 +94,24 @@ double getTime() {
 
 // Function to initialize the monitoring
 void start() {
-    // Initialize the last_event_time to -1
-    struct timespec now;
-    clock_gettime(CLOCK_MONOTONIC, &now);
-    last_event_time = now.tv_sec + now.tv_nsec / 1e9;
-    // Set the stop_monitoring flag to false
-    stop_monitoring = false;
 
-    // Start the background thread to monitor input events
-    std::thread input_thread(monitor_input_events);
-    input_thread.detach(); // Detach the thread to run in the background
+    std::vector<int> fds = get_input_devices();
+
+    if (fds.empty()) {
+        fprintf(stderr, "No input devices found\n");
+    }else{
+        // Initialize the last_event_time to -1
+        struct timespec now;
+        clock_gettime(CLOCK_MONOTONIC, &now);
+        last_event_time = now.tv_sec + now.tv_nsec / 1e9;
+        // Set the stop_monitoring flag to false
+        stop_monitoring = false;
+
+        // Start the background thread to monitor input events
+        std::thread input_thread(monitor_input_events, fds);
+        input_thread.detach(); // Detach the thread to run in the background
+    }
+
 }
 
 // Function to stop the monitoring
