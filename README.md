@@ -51,7 +51,7 @@ The package offers 3 functions:
     NB; On Linux systems, time will always be tracked from the moment `startMonitoring()` is called, so any usage of `getIdleTime()` before this point will return a 0.
 - `getIdleTime()`
     - This is the function that returns the current Idle time in seconds. This value will reset every time the user interacts with their device in any way.
-    - It is important to note that if for whatever reason, the code fails to start monitoring actions, the idle time will remain '-1', and this can be handled by your code accordingly (thanks @hovancik for this one).
+    - It is important to note that if for whatever reason, the code fails to start monitoring actions, the idle time will remain '-1', and this can be handled by your code accordingly (thanks <a href="https://github.com/hovancik" target="_blank">@hovancik</a> for this one).
 - `stopMonitoring()`
     - This pauses the system from tracking idle time. Similar to `startMonitoring()`, this only effects Linux systems, and can be safely ignored on Windows systems.
 
