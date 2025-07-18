@@ -31,11 +31,13 @@ This fork focuses on making node-desktop-idle work with contemporary softwares, 
 
 ## Versions after v1.1
 
-In v1.1, this project started to use the combination of [prebuildify](https://github.com/prebuild/prebuildify) and [node-gyp-build](https://github.com/prebuild/node-gyp-build). This means that now, build should be, for the most part, embedded in the package and ready to use. If issues pertaining to NodeJS ABI version, follow the steps below.
+In v1.1, this project started to use the combination of [prebuildify](https://github.com/prebuild/prebuildify) and [node-gyp-build](https://github.com/prebuild/node-gyp-build). This means that now, binaries should be, for the most part, embedded in the package and ready to use. If issues pertaining to NodeJS ABI version come up, follow the steps below.
 
 ## Version before v1.1 (or in case of issues)
 
-Due the native nature of this package, using it in different contexts requires different binaries. This can be done with a whole host of binary bulding packages, but if you are targeting Electron, I suggest [@electron/rebuild](https://www.npmjs.com/package/@electron/rebuild).
+Due the native nature of this package, using it in different contexts requires different binaries. This can be done with a whole host of binary building packages, but if you are targeting Electron, I suggest [@electron/rebuild](https://www.npmjs.com/package/@electron/rebuild). For other contexts, more complex processes must be done, which would be out of scope for this readme.
+
+Let me know if you find this package is missing binaries you need, and I will try to see how it can be bundled.
 
 ## Platform specific Instructions:
 - Linux:
