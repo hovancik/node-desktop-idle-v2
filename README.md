@@ -27,6 +27,16 @@ This fork focuses on making node-desktop-idle work with contemporary softwares, 
 
 # Instrutions
 
+# Usage with Electron:
+
+## Versions after v1.1
+
+In v1.1, this project started to use the combination of (prebuildify)[https://github.com/prebuild/prebuildify] and (node-gyp-build)[https://github.com/prebuild/node-gyp-build]. This means that now, build should be, for the most part, embedded in the package and ready to use. If issues pertaining to NodeJS ABI version, follow the steps below.
+
+## Version before v1.1 (or in case of issues)
+
+Due the native nature of this package, using it in different contexts requires different binaries. This can be done with a whole host of binary bulding packages, but if you are targeting Electron, I suggest (@electron/rebuild)[https://www.npmjs.com/package/@electron/rebuild].
+
 ## Platform specific Instructions:
 - Linux:
     - Confirm that User has permission to access `inputs` group. 
@@ -58,7 +68,7 @@ The package offers 3 functions:
 
 ## Instructions to test the package after cloning:
 - Follow Platform specific instructions
-- If changes are done to native code for any platform, please run `npm run gyp-refresh`
+- If changes are done to native code for any platform, please run `npm run build-native`
 - To run a test, run `node ./test.js` after having built (`npm run build`) the project. This will run a 10 second test, giving idle time every second.
 
 # Directly Tested Platforms:
@@ -69,6 +79,3 @@ The package offers 3 functions:
 - macOS (do not have the resources to test this </3)
 
 NB; It supports more OS versions, however these are the version that have been directly tested.
-
-# Usage with Electron:
-- Since Electron uses a specific NodeJS ABI version (at the time of writing 133), you will still need to use something to recompile the native parts of this package. I've used @electron/rebuild (https://www.npmjs.com/package/@electron/rebuild), but anything should work.

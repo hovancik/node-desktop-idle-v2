@@ -85,7 +85,7 @@ double getTime() {
 
     double last_time = last_event_time.load();
     if (last_time == -1) {
-        printf("No input events detected yet\n");
+        // perror("No input events detected yet\n");
         return -1;
     }
 

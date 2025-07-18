@@ -7,4 +7,4 @@ export interface DesktopIdle {
     stopMonitoring: () => void;
 }
 
-export const desktopIdle = customRequire("../build/Release/desktopIdle.node") as unknown as DesktopIdle;
+export const desktopIdle = customRequire('node-gyp-build')("../build/Release/desktopIdle.node") as unknown as DesktopIdle;

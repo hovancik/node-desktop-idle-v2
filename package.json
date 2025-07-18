@@ -1,6 +1,6 @@
 {
   "name": "node-desktop-idle-v2",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
   "license": "MIT",
@@ -34,24 +34,26 @@
     "src/",
     "binding.gyp",
     "package.json",
-    "README.md"
+    "README.md",
+    "prebuilds/"
   ],
   "gypfile": true,
   "devDependencies": {
     "@types/node": "24.0.14",
     "eslint": "9.31.0",
-    "node-gyp": "11.2.0",
     "npm-check": "6.0.1",
+    "prebuildify": "6.0.1",
     "typescript": "5.8.3"
   },
   "dependencies": {
-    "nan": "2.23.0"
+    "nan": "2.23.0",
+    "node-gyp-build": "4.8.4"
   },
   "scripts": {
-    "gyp-refresh": "node-gyp clean && node-gyp configure && node-gyp build",
-    "build-refresh": "rm -rf dist && tsc",
+    "build-native": "prebuildify --all --strip ",
     "check-packages": "npx npm-check -u -E",
     "refresh-packages": "rm -rf node_modules && rm -rf package-lock.json && npm i",
-    "build": "npm run gyp-refresh && npm run build-refresh"
+    "build": "tsc",
+    "install": "node-gyp-build"
   }
 }
