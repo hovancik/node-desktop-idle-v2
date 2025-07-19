@@ -82,3 +82,6 @@ The package offers 3 functions:
 - macOS (do not have the resources to test this </3)
 
 NB; It supports more OS versions, however these are the version that have been directly tested.
+
+
+    "build-native": "prebuildify --target 16.20.2 --target 18.20.8 --target 20.19.4 --target 22.17.1 --target 22.17.0 --runtime=electron --target 22.16.0 --runtime=electron --strip",
