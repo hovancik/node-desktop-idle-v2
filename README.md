@@ -46,6 +46,7 @@ Let me know if you find this package is missing binaries you need, and I will tr
         `sudo usermod -aG input $USER`
     - Make sure to restart or log out and log in again for changes to permissions to take effect.
     - This will be required for whatever project uses this package as well, so my suggestion is checking for this access in your project and guiding the end user through this process for linux cases. Even though this is a bit outside the scope of this package, if more help is required on this point, don't hesitate to reach out :).
+    - You might also be required to run `sudo apt install libudev-dev libinput-dev` when rebuilding this package, as while `libudev` and `libinput` come bundled with Linux distros (usually), the dev bindings of these packages are not.
 - Windows:
     - No extra steps needed
 - MacOS:
