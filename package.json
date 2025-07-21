@@ -1,6 +1,6 @@
 {
   "name": "node-desktop-idle-v2",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
   "license": "MIT",
@@ -49,10 +49,10 @@
     "node-gyp-build": "4.8.4"
   },
   "scripts": {
-    "build-native": "prebuildify --napi --electron-compat",
+    "build-native": "prebuildify --napi --electron-compat --name desktopIdle",
     "check-packages": "npx npm-check -u -E",
     "refresh-packages": "rm -rf node_modules && rm -rf package-lock.json && npm i",
-    "build": "tsc && npx node-gyp rebuild",
+    "build": "tsc",
     "install": "node-gyp-build"
   }
 }

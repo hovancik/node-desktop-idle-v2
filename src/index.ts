@@ -1,5 +1,7 @@
 
 import { createRequire } from 'module';
+import { fileURLToPath } from 'url';
+
 const customRequire = createRequire(import.meta.url);
 export interface DesktopIdle {
     startMonitoring: () => void;
@@ -7,4 +9,6 @@ export interface DesktopIdle {
     stopMonitoring: () => void;
 }
 
-export const desktopIdle = customRequire('node-gyp-build')("../build/Release/desktopIdle.node") as unknown as DesktopIdle;
+const bindings = customRequire('node-gyp-build')(fileURLToPath(new URL('..', import.meta.url)));
+
+export const desktopIdle: DesktopIdle = bindings as unknown as DesktopIdle;
