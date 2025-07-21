@@ -1,6 +1,6 @@
 {
   "name": "node-desktop-idle-v2",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
   "license": "MIT",
@@ -52,7 +52,7 @@
     "build-native": "prebuildify --napi --electron-compat",
     "check-packages": "npx npm-check -u -E",
     "refresh-packages": "rm -rf node_modules && rm -rf package-lock.json && npm i",
-    "build": "tsc",
+    "build": "tsc && npx node-gyp rebuild",
     "install": "node-gyp-build"
   }
 }
